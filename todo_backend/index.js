@@ -1,5 +1,5 @@
 const express=require('express');
-
+import {todo_schema} from  './type'
 const app=express();
 const port=3000;
 
@@ -10,7 +10,14 @@ app.use(express.json());
  */
 
 app.post('/todo', (req, res)=>{
-    const todo_data=req.body;
+    const create_payload=req.body;
+    const parse_payload=todo_schema.safeParse(create_payload);
+    if(!parse_payload.success){
+        res.status(411).json({
+            msg: "you send the wrong input"
+        })
+        return;
+    }
     
     res.send("todo");
 })
