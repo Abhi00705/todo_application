@@ -12,7 +12,10 @@
     "dev": "nodemon index.js"
   },
   "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.4",
     "express": "^5.2.1",
+    "mongoose": "^9.10.2",
     "zod": "^4.6.5"
   }
 }
